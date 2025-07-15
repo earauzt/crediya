@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-export interface Input2FAProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type Input2FAProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input2FA = forwardRef<HTMLInputElement, Input2FAProps>(
   ({ className = "", ...props }, ref) => (
