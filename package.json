@@ -11,21 +11,6 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "next": "15.4.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9.31.0",
-    "eslint-config-next": "^15.4.1",
-    "tailwindcss": "^4",
-=======
     "@heroicons/react": "^2.2.0",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.51.0",
@@ -53,7 +38,8 @@
     "tailwindcss": "^4",
     "ts-jest": "^29",
     "ts-node": "^10.9.2",
->>>>>>> 0fd8d947244bd5aefc7d61b2e1114186fa582faa
     "typescript": "^5"
+  }
+}
   }
 }
