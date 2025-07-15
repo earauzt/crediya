@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { useAuth } from "@/app/auth/AuthProvider";
 import InputText from "@/src/components/ui/InputText";
@@ -17,6 +18,12 @@ export default function Header() {
         <Image src="/next.svg" alt="Crediya logo" width={32} height={32} />
         <span className="font-semibold text-xl">Crediya</span>
       </div>
+      <nav className="hidden md:flex gap-3 text-sm ml-4">
+        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/catalogo">Catálogo</Link>
+        <Link href="/solicitudes">Solicitudes</Link>
+        <Link href="/perfil">Perfil</Link>
+      </nav>
       <InputText
         value={search}
         onChange={(e) => setSearch(e.target.value)}

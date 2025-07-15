@@ -1,4 +1,9 @@
 'use client';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Cat\u00e1logo - Crediya',
+  description: 'Explora nuestro cat\u00e1logo de productos',
+}
 import { useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import FilterSidebar from '@/components/FilterSidebar';
