@@ -1,4 +1,9 @@
 'use client';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Simulador - Crediya',
+  description: 'Calcula tus cuotas de financiamiento',
+}
 import { useState } from 'react';
 import { InputText, ButtonPrimary } from "@/src/components/ui";
 import Header from "@/components/Header";
