@@ -35,6 +35,7 @@ export default function ProductCard({
         width={300}
         height={200}
         className="w-full h-40 object-contain"
+        loading="lazy"
       />
       <h3 className="font-semibold text-[#003366]">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>

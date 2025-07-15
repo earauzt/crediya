@@ -1,6 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageContainer from "@/components/PageContainer";
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Exito - Crediya',
+  description: 'Confirmaci\u00f3n de compra',
+}
 
 export default function SuccessPage() {
   return (

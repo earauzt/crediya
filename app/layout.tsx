@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ChatWidget } from "@/src/components/ui";
+import dynamic from "next/dynamic";
+const ChatWidget = dynamic(() => import("@/src/components/ui/ChatWidget"), { ssr: false });
+import { Analytics } from "@vercel/analytics/react";
 import AuthProvider from "./auth/AuthProvider";
 
 const inter = Inter({
@@ -27,6 +29,7 @@ export default function RootLayout({
         </AuthProvider>
         {/* Chat de Soporte IA - visible en todas las páginas */}
         <ChatWidget />
+        <Analytics />
       </body>
     </html>
   );
