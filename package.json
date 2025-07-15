@@ -6,9 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "e2e": "playwright test"
   },
   "dependencies": {
+<<<<<<< HEAD
     "next": "15.4.1",
     "react": "19.1.0",
     "react-dom": "19.1.0"
@@ -22,6 +25,35 @@
     "eslint": "^9.31.0",
     "eslint-config-next": "^15.4.1",
     "tailwindcss": "^4",
+=======
+    "@heroicons/react": "^2.2.0",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.51.0",
+    "@vercel/analytics": "^1",
+    "next": "15.4.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "recharts": "^3.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.54.1",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^14",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.1",
+    "jest": "^29",
+    "jest-environment-jsdom": "^30.0.4",
+    "playwright": "^1.43.1",
+    "tailwindcss": "^4",
+    "ts-jest": "^29",
+    "ts-node": "^10.9.2",
+>>>>>>> 0fd8d947244bd5aefc7d61b2e1114186fa582faa
     "typescript": "^5"
   }
 }
