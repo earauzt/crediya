@@ -32,8 +32,12 @@ export default function LoginPage() {
         })
       }
       window.location.href = '/dashboard'
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError('Error desconocido')
+      }
     } finally {
       setLoading(false)
     }
