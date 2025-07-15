@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-export interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type InputPasswordProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ className = "", ...props }, ref) => (

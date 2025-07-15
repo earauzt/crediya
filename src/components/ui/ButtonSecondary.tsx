@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react";
 
-export interface ButtonSecondaryProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export type ButtonSecondaryProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function ButtonSecondary({ className = "", ...props }: ButtonSecondaryProps) {
   return (
