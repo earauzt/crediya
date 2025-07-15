@@ -1,11 +1,12 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { LockClosedIcon } from '@heroicons/react/24/outline'
 import { InputText, InputPassword, Input2FA, ButtonPrimary, ButtonSecondary } from '@/src/components/ui'
-import { supabase } from '@/src/lib/supabaseClient'
+import { useAuth } from '../auth/AuthProvider'
 
 export default function LoginPage() {
+  const { login, logout, user } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [code, setCode] = useState('')
@@ -13,29 +14,29 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  useEffect(() => {
+    if (user) {
+      window.location.href = '/dashboard'
+    }
+  }, [user])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
-    if (signInError) {
-      setError(signInError.message)
-      setLoading(false)
-      return
-    }
-    if (code) {
-      const { error: otpError } = await supabase.auth.verifyOtp({ token: code, type: 'totp' })
-      if (otpError) {
-        setError(otpError.message)
-        setLoading(false)
-        return
+    try {
+      await login(email, password, code || undefined)
+      if (!remember) {
+        window.addEventListener('beforeunload', () => {
+          logout()
+        })
       }
+      window.location.href = '/dashboard'
+    } catch (err: any) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
     }
-    if (!remember) {
-      // Session persistence is handled by supabase-js; for a non persistent session we remove it on unload
-      window.addEventListener('beforeunload', () => supabase.auth.signOut())
-    }
-    window.location.href = '/'
   }
 
   return (
