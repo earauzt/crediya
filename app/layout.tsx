@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
-const ChatWidget = dynamic(() => import("@/src/components/ui/ChatWidget"), { ssr: false });
 import { Analytics } from "@vercel/analytics/react";
 import AuthProvider from "./auth/AuthProvider";
+import ClientLayout from "./ClientLayout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,10 +24,10 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} antialiased`}>
         <AuthProvider>
-          {children}
+          <ClientLayout>
+            {children}
+          </ClientLayout>
         </AuthProvider>
-        {/* Chat de Soporte IA - visible en todas las páginas */}
-        <ChatWidget />
         <Analytics />
       </body>
     </html>

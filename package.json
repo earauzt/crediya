@@ -1,5 +1,5 @@
 {
-  "name": "my-fintech-app",
+  "name": "crediya",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -40,4 +40,4 @@
     "ts-node": "^10.9.2",
     "typescript": "^5"
   }
-
+}
