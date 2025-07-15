@@ -1,55 +1,71 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
 export interface ProductCardProps {
   imageSrc: string;
   title: string;
+  description: string;
   price: number;
-  installmentText: string;
+  lowestPrice?: boolean;
+  installments: number;
   onBuy?: () => void;
 }
 
 /**
- * Card para mostrar un producto con diseño mobile-first.
- * Ejemplo de uso:
- * ```tsx
- * <ProductCard
- *   imageSrc="/producto.jpg"
- *   title="Smartphone"
- *   price={499.99}
- *   installmentText="12 cuotas de $49.99"
- *   onBuy={() => console.log('Comprar')}
- * />
- * ```
+ * Card de producto reutilizable con cálculo de cuotas.
  */
 export default function ProductCard({
   imageSrc,
   title,
+  description,
   price,
-  installmentText,
+  lowestPrice,
+  installments,
   onBuy,
 }: ProductCardProps) {
+  const [selectedInstallments, setSelectedInstallments] = useState<number>(installments);
+  const perInstallment = price / selectedInstallments;
+
   return (
-    <div className="border rounded-lg p-4 flex flex-col items-center bg-[#f8f8f8] sm:flex-row sm:p-6">
-      <div className="w-full sm:w-1/3">
-        <Image
-          src={imageSrc}
-          alt={title}
-          width={200}
-          height={200}
-          className="object-contain w-full h-auto"
-        />
+    <div className="border rounded-lg p-4 flex flex-col bg-white gap-2 transition-shadow hover:shadow">
+      <Image
+        src={imageSrc}
+        alt={title}
+        width={300}
+        height={200}
+        className="w-full h-40 object-contain"
+      />
+      <h3 className="font-semibold text-[#003366]">{title}</h3>
+      <p className="text-sm text-gray-600">{description}</p>
+      <div className="flex items-center gap-2">
+        <span className="text-[#006699] font-bold text-lg">${price.toFixed(2)}</span>
+        {lowestPrice && (
+          <span className="text-xs text-blue-700 bg-blue-100 px-2 py-0.5 rounded">
+            Precio más bajo
+          </span>
+        )}
       </div>
-      <div className="flex flex-col gap-2 mt-4 text-center sm:text-left sm:mt-0 sm:w-2/3 sm:pl-4">
-        <h3 className="text-lg font-semibold text-[#003366]">{title}</h3>
-        <p className="text-[#006699] text-xl font-bold">${price.toFixed(2)}</p>
-        <p className="text-sm text-[#555]">{installmentText}</p>
-        <button
-          onClick={onBuy}
-          className="mt-2 bg-[#006699] text-white py-2 px-4 rounded-md hover:bg-[#005080] transition-colors"
+      <div className="flex items-center gap-2 text-sm">
+        <select
+          value={selectedInstallments}
+          onChange={(e) => setSelectedInstallments(Number(e.target.value))}
+          className="border rounded p-1 text-sm"
         >
-          Comprar en cuotas
-        </button>
+          {[3, 6, 12].map((n) => (
+            <option key={n} value={n}>{n} cuotas</option>
+          ))}
+        </select>
+        <span>
+          {selectedInstallments} cuotas de ${perInstallment.toFixed(2)}
+        </span>
       </div>
+      <button
+        onClick={onBuy}
+        className="mt-auto bg-[#006699] text-white py-2 px-4 rounded hover:bg-[#005080]"
+      >
+        Comprar en cuotas
+      </button>
     </div>
   );
 }
