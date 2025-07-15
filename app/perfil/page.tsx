@@ -1,4 +1,9 @@
 'use client'
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Perfil - Crediya',
+  description: 'Informaci\u00f3n de tu cuenta',
+}
 import { useAuth } from '../auth/AuthProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'

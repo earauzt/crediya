@@ -1,4 +1,9 @@
 'use client';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Solicitudes - Crediya',
+  description: 'Gestiona tus solicitudes de cr\u00e9dito',
+}
 import { useState } from 'react';
 import { InputText, ButtonPrimary } from "@/src/components/ui";
 import Header from "@/components/Header";

@@ -1,11 +1,17 @@
 'use client';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Dashboard - Crediya',
+  description: 'Resumen de tu actividad financiera',
+}
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
 import PageContainer from '@/components/PageContainer';
 import MetricCard from '@/components/MetricCard';
-import ActivityChart from '@/components/ActivityChart';
+import dynamic from 'next/dynamic'
+const ActivityChart = dynamic(() => import('@/components/ActivityChart'), { ssr: false })
 import Card from '@/components/ui/Card';
 import ButtonPrimary from '@/src/components/ui/ButtonPrimary';
 
