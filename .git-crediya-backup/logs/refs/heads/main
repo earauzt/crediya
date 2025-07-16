@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 05c8fb413ad0e22c62d08b90d921c4723fc7bb93 earauzt <earauzt@gmail.com> 1752544783 -0500	clone: from https://github.com/earauzt/crediya.git
+05c8fb413ad0e22c62d08b90d921c4723fc7bb93 e9724018aa6c7b8650c6f057ab6c26d886db119b earauzt <earauzt@gmail.com> 1752613221 -0500	commit: fix: update @testing-library/react to support React 19
+e9724018aa6c7b8650c6f057ab6c26d886db119b f3ca5c90fe8166a8735e7137d54c1d1cd2d4f6b5 earauzt <earauzt@gmail.com> 1752613358 -0500	commit (merge): fix: add .npmrc to resolve peer dependency conflicts
+f3ca5c90fe8166a8735e7137d54c1d1cd2d4f6b5 a523fbac7fad2bd2eafdd711b23cb131f7b63d49 earauzt <earauzt@gmail.com> 1752613717 -0500	commit: resolve merge conflict in package.json
+a523fbac7fad2bd2eafdd711b23cb131f7b63d49 644eaeb4f688ce2f393aba7f1d820fb6d50e1684 earauzt <earauzt@gmail.com> 1752613827 -0500	commit: fix package.json syntax error
+644eaeb4f688ce2f393aba7f1d820fb6d50e1684 bb8ab2a0d39eb0b9e0777e1cd99c6f2c99448a73 earauzt <earauzt@gmail.com> 1752616704 -0500	commit: fix: move next/dynamic with ssr:false to Client Component
+bb8ab2a0d39eb0b9e0777e1cd99c6f2c99448a73 fe46948c390f9fcb89b1eaa1d6a4ef852d8ab0bf earauzt <earauzt@gmail.com> 1752616746 -0500	commit (merge): resolve merge conflict in package.json
+fe46948c390f9fcb89b1eaa1d6a4ef852d8ab0bf 5d6779143c241742eb7ee70e7ff69545ed701665 earauzt <earauzt@gmail.com> 1752630223 -0500	commit: fix: resolve all build errors and TypeScript issues
+5d6779143c241742eb7ee70e7ff69545ed701665 f5d498c0a4cb721d0c126dfd324b09470da49169 earauzt <earauzt@gmail.com> 1752632023 -0500	commit: fix: remove Supabase dependency for successful build
