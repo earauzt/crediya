@@ -1,20 +1,24 @@
-import { supabase } from '@/lib/supabase/client'
+// Auth helpers without Supabase dependency - to be updated when Supabase is configured
 
 export async function login(email: string, password: string) {
-  return supabase.auth.signInWithPassword({ email, password })
+  // Mock login response
+  return { 
+    data: { user: { id: '1', email } }, 
+    error: null 
+  }
 }
 
 export async function verify2FA(_code: string) {
-  // Note: 2FA verification would need proper implementation with user email
-  // For now, we'll return a success response
+  // Mock 2FA verification
   return { data: null, error: null }
 }
 
 export async function logout() {
-  return supabase.auth.signOut()
+  // Mock logout
+  return { error: null }
 }
 
 export async function getSession() {
-  const { data } = await supabase.auth.getSession()
-  return data.session
+  // Mock session
+  return null
 }

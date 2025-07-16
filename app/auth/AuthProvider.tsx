@@ -1,8 +1,16 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
-import { Session, User, AuthChangeEvent } from '@supabase/supabase-js'
-import { supabase } from '@/lib/supabase/client'
+import { createContext, useContext, useState } from 'react'
+
+// Simplified types without Supabase dependency
+interface User {
+  id: string
+  email: string
+}
+
+interface Session {
+  user: User
+}
 
 interface AuthContextType {
   user: User | null
@@ -22,38 +30,24 @@ export const useAuth = () => {
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }: { data: { session: Session | null } }) => {
-      setSession(data.session)
-      setLoading(false)
-    })
-    const { data: listener } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
-      setSession(session)
-    })
-    return () => {
-      listener.subscription.unsubscribe()
-    }
-  }, [])
+  const [loading, setLoading] = useState(false)
 
   const loginFn = async (email: string, password: string, _code?: string) => {
     setLoading(true)
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
-      setLoading(false)
-      throw error
-    }
-    // Note: 2FA code verification would need proper implementation with user email
-    // For now, we'll skip the OTP verification step
-    const { data } = await supabase.auth.getSession()
-    setSession(data.session)
+    
+    // Simulate login - replace with actual auth when Supabase is configured
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    // Mock successful login
+    const mockUser: User = { id: '1', email }
+    const mockSession: Session = { user: mockUser }
+    
+    setSession(mockSession)
     setLoading(false)
   }
 
   const logoutFn = async () => {
     setLoading(true)
-    await supabase.auth.signOut()
     setSession(null)
     setLoading(false)
   }

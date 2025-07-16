@@ -1,6 +1,9 @@
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Supabase client placeholder - to be configured when Supabase is set up
+export const supabase = {
+  auth: {
+    getSession: () => Promise.resolve({ data: { session: null } }),
+    onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+    signInWithPassword: () => Promise.resolve({ error: new Error('Supabase not configured') }),
+    signOut: () => Promise.resolve({ error: null }),
+  }
+}
