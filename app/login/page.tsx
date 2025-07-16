@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { LockClosedIcon } from '@heroicons/react/24/outline'
-import { InputText, InputPassword, Input2FA, ButtonPrimary, ButtonSecondary } from '@/src/components/ui'
+import { InputText, InputPassword, Input2FA, ButtonPrimary } from '@/src/components/ui'
 import { useAuth } from '../auth/AuthProvider'
 
 export default function LoginPage() {
@@ -94,12 +94,18 @@ export default function LoginPage() {
       <div className="mt-8 text-center">
         <p className="mb-2 text-sm">¿Necesita ayuda?</p>
         <div className="flex justify-center gap-4">
-          <ButtonSecondary asChild>
-            <Link href="#">Soporte</Link>
-          </ButtonSecondary>
-          <ButtonSecondary asChild>
-            <Link href="#">FAQ</Link>
-          </ButtonSecondary>
+          <Link 
+            href="#"
+            className="bg-[#10B981] text-white px-4 py-2 rounded-md transition-colors hover:opacity-90"
+          >
+            Soporte
+          </Link>
+          <Link 
+            href="#"
+            className="bg-[#10B981] text-white px-4 py-2 rounded-md transition-colors hover:opacity-90"
+          >
+            FAQ
+          </Link>
         </div>
       </div>
       <footer className="mt-8 text-center text-sm text-gray-500">

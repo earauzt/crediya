@@ -8,7 +8,7 @@ import MetricCard from '@/components/MetricCard'
 import dynamic from 'next/dynamic'
 const ActivityChart = dynamic(() => import('@/components/ActivityChart'), { ssr: false })
 import Card from '@/components/ui/Card'
-import ButtonPrimary from '@/src/components/ui/ButtonPrimary'
+
 
 interface Transaction {
   id: number
@@ -84,15 +84,24 @@ export default function DashboardClient() {
             <Card>
               <h2 className="font-semibold mb-2">Accesos rápidos</h2>
               <div className="flex flex-col gap-2">
-                <ButtonPrimary asChild>
-                  <a href="/solicitudes">Nueva Solicitud</a>
-                </ButtonPrimary>
-                <ButtonPrimary asChild>
-                  <a href="/catalogo">Ver Catálogo</a>
-                </ButtonPrimary>
-                <ButtonPrimary asChild>
-                  <a href="/perfil">Editar Perfil</a>
-                </ButtonPrimary>
+                <a 
+                  href="/solicitudes"
+                  className="bg-[#1D4ED8] text-white px-4 py-2 rounded-md transition-colors hover:opacity-90 text-center"
+                >
+                  Nueva Solicitud
+                </a>
+                <a 
+                  href="/catalogo"
+                  className="bg-[#1D4ED8] text-white px-4 py-2 rounded-md transition-colors hover:opacity-90 text-center"
+                >
+                  Ver Catálogo
+                </a>
+                <a 
+                  href="/perfil"
+                  className="bg-[#1D4ED8] text-white px-4 py-2 rounded-md transition-colors hover:opacity-90 text-center"
+                >
+                  Editar Perfil
+                </a>
               </div>
             </Card>
           </div>
